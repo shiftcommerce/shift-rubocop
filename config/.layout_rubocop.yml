@@ -535,3 +535,270 @@ Layout/MultilineBlockLayout:
 
 Layout/MultilineHashBraceLayout:
   EnforcedStyle: symmetrical
+
+# Layout::MultilineMethodCallBraceLayout
+#
+# Checks that the closing brace in a method call is either on the
+# same line as the last method argument, or a new line
+
+Layout/MultilineMethodCallBraceLayout:
+  EnforcedStyle: symmetrical
+
+# Layout::MultilineMethodCallIndentation
+#
+# Checks the indentation of the method name part in method calls
+# that span more than one line.
+#
+# bad
+#  while a
+#  .b
+#    something
+#  end
+#
+# good:
+#
+#  while a
+#        .b
+#    something
+#  end
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: aligned
+
+# Layout::MultilineMethodDefinitionBraceLayout
+#
+# Checks that the closing brace in a method definition is either on the
+# same line as the last method parameter, or a new line
+
+Layout/MultilineMethodDefinitionBraceLayout:
+  EnforcedStyle: symmetrical
+
+# Layout::MultilineOperationIndentation
+#
+# Checks the indentation of the right hand side operand in the binary operations that span
+# more than one line.
+#
+# bad:
+#
+#  if a +
+#  b
+#    something
+#  end
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: aligned
+
+# Layout/SpaceAfterColon
+#
+# Checks for colon(:) not followed by some kind of space.
+Layout/SpaceAfterColon:
+  Enabled: true
+
+# Layout/SpaceAfterComma
+#
+# Checks for comma(,) not followed by some kind of space.
+Layout/SpaceAfterComma:
+  Enabled: true
+
+
+# Layout::SpaceAfterMethodName
+#
+# Checks for space between a method name and a left parenthesis in defs
+#
+# bad:
+#
+#  def func (x) .. end
+#
+# good:
+#
+#  def func(x) ... end
+#
+Layout/SpaceAfterMethodName:
+  Enabled: true
+
+# Layout::SpaceAfterNot
+#
+# Checks for space after '!'
+#
+# bad:  ! something
+#
+# good: !something
+#
+Layout/SpaceAfterNot:
+  Enabled: true
+
+# Layout::SpaceAfterSemicolon
+#
+# Checks for semicolon not followed by somekind of space
+Layout/SpaceAfterSemicolon:
+  Enabled: true
+
+# Layout::SpaceAroundBlockParameters
+#
+# Checks that spacing inside and after block parameters pipes
+#
+# bad:  {}.each { | x, y | puts x }
+#
+# good: {}.each { |x,y| puts x }
+
+Layout/SpaceAroundBlockParameters:
+  Enabled: true
+
+# Layout::SpaceAroundEqualsInParameterDefault
+#
+# Checks that the equals signs in parameter default assignments have surrounding space
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: space
+
+# Layout::SpaceAroundKeyword
+#
+# Checks the spacing around the keywords.
+#
+# bad:
+#
+#   while(something)
+#   end
+#
+# good:
+#
+#   while (something)
+#   end
+
+Layout/SpaceAroundKeyword:
+  Enabled: true
+
+# Layout::SpaceAroundOperators
+#
+# Checks that operators have space around them,
+# except for ** which should not have surrounding space.
+#
+# bad:  x+y
+#
+# good: x + y
+#
+Layout/SpaceAroundOperators:
+  Enabled: true
+
+# Layout::SpaceBeforeBlockBraces
+#
+# Checks that block braces have/dont have space before the opening brace depending on configuration
+Layout/SpaceBeforeBlockBraces:
+  Enabled: false
+
+# Layout::SpaceBeforeComma
+#
+# Checks for comma (,) preceded by space
+
+Layout/SpaceBeforeComma:
+  Enabled: true
+
+# Layout::SpaceBeforeComment
+#
+# Checks for missing space between a token and comment on the same line.
+
+Layout/SpaceBeforeComment:
+  Enabled: false
+
+# Layout::SpaceBeforeFirstArg
+#
+# Checks that exactly one space is used between a method name and
+# the first argument for method calls without parentheses
+#
+# bad:
+#
+#   something   x
+#   something     x, y
+
+Layout/SpaceBeforeFirstArg:
+  AllowForAlignment: true
+
+# Layout::SpaceInLambdaLiteral
+#
+# Checks for spaces between -> and opening parameter brace in lambda literals
+#
+# bad:  a = ->(x,y) { x + y }
+#
+# good: a = -> (x,y) { x + y }
+
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
+# Layout::SpaceInsideArrayPercentLiteral
+#
+# Checks for unnecessary additional spaces inside array percent literals (i.e. %i/%w).
+#
+# bad:  %w(foo  bar  baz)
+#
+# good: %w(foo bar baz)
+
+Layout/SpaceInsideArrayPercentLiteral:
+  Enabled: true
+
+# Layout::SpaceInsideBlockBraces
+#
+# Checks that block braces have or don't have surrounding space inside them on configuration
+Layout/SpaceInsideBlockBraces:
+  Enabled: false
+
+# Layout::SpaceInsideHashLiteralBraces
+#
+# Checks that braces used for hash literals have or
+# don't have surrounding space depending on configuration.
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false
+
+# Layout::SpacsInsideParens
+#
+# Checks for spaces inside ordinary round parenthesis
+Layout/SpaceInsideParens:
+  Enabled: false
+
+# Layout::SpaceInsidePercentLiteralDelimiters
+#
+# Checks for unnecessary additional spaces inside the delimiters of %i,%w, %X literals.
+#
+# bad:  %x( ls -l )
+
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Enabled: true
+
+# Layout::SpaceInsideRangeLiteral
+#
+# Checks for spaces inside range literals
+#
+# bad:  1 .. 3
+#
+# good: 1..3
+
+Layout/SpaceInsideRangeLiteral:
+  Enabled: true
+
+# Layout::SpaceInsideStringInterpolation
+#
+# Checks for whitespace withing string interpolations.
+#
+# bad: "#{no_space}"
+#
+# good: "#{ space }"
+
+Layout/SpaceInsideStringInterpolation:
+  EnforcedStyle: space
+
+# Layout::Tab
+#
+# Checks for tabs inside the source code
+Layout/Tab:
+  Enabled: false
+
+# Layout::TrailingBlankLines
+#
+# Checks for trailing blank lines
+Layout/TrailingBlankLines:
+  Enabled: true
+
+# Layout::TrailingWhitespace
+#
+# Checks for trailing whitespace in the source code
+Layout/TrailingWhitespace:
+  Enabled: false

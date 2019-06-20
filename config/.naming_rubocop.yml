@@ -36,3 +36,39 @@ Naming/FileName:
 
 Naming/MethodName:
   EnforcedStyle: snake_case
+
+
+# Naming::ConstantName
+#
+# Checks for 'snake_case' is used or not for naming Constants
+
+Naming/ConstantName:
+  Enabled: true
+
+# Naming::PredicateName
+#
+# Makes sure that predicates are named properly.
+#
+# bad:   def is_even?(value)
+#
+# good:  def even?(value)
+Naming/PredicateName:
+  Enabled: true
+
+# Naming::VariableName
+#
+# Makes sure that all the variables use the configured style : snake_case
+Naming/VariableName:
+  EnforcedStyle: snake_case
+
+# Naming::VariableNumber
+#
+# Makes sure that all numbered variables use the snake_case  style, for their numbering
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+# Style::BinaryOperatorParameterName
+#
+# Makes sure that certain operator method have their sole parameter named `other`
+Style/BinaryOperatorParameterName:
+  Enabled: false
