@@ -22,31 +22,6 @@ Rails/ActionFilter:
 Rails/Date:
   EnforcedStyle: flexible
 
-# Rails::Delegate
-#
-# Looks for delegations, that could have been created automatically with delegate method
-#
-# bad:
-#
-#   def bar
-#     foo.bar
-#   end
-#
-# good:
-#
-#   delegate :bar, to: :foo
-#
-
-Rails/Delegate:
-  Enabled: true
-
-# Rails::DelegateAllowBlank
-#
-# Looks for delegations that pass :allow_blank as an option instead of :allow_nil.
-
-Rails/DelegateAllowBlank:
-  Enabled: true
-
 # Rails::DynamicFindBy
 #
 # Checks dynamic `find_by_*` methods. Use `find_by` instead of dynamic method.
@@ -62,54 +37,6 @@ Rails/DynamicFindBy:
   Whitelist:
   - find_by_sql
 
-# Rails::EnumUniqueness
-#
-# Looks for duplicate values in enum decorations.
-#
-# bad:    enum status { active: 0, archived: 0 }
-#
-# good:   enum status { active: 0, archived: 1 }
-
-Rails/EnumUniqueness:
-  Enabled: true
-
-# Rails::Exit
-#
-# Enforces that 'exit' calls are not used withing a rails app.
-
-Rails/Exit:
-  Enabled: true
-
-# Rails::FindBy
-#
-# Used to identify usages of `where.first` and change them to use `find_by` instead
-#
-# bad: User.where(name: 'Prasanna').first
-#
-# good: User.find_by(name: 'Prasanna')
-
-Rails/FindBy:
-  Enabled: true
-
-# Rails::FindEach
-#
-# Used to identify usages of `all.each` and change them to use `all.find_each` instead.
-#
-# bad: User.all.each
-#
-# good: User.all.find_each
-
-Rails/FindEach:
-  Enabled: true
-
-# Rails::HasAndBelongsToMany
-#
-# Checks for the use of the has_and_belongs_to_many macro
-# Prefer 'has_many :through'
-
-Rails/HasAndBelongsToMany:
-  Enabled: true
-
 # Rails::NotNullColumn
 #
 # Checks for add_column call with NOT NULL constraint in migration file.
@@ -121,41 +48,6 @@ Rails/HasAndBelongsToMany:
 Rails/NotNullColumn:
   Enabled: false
 
-# Rails::Output
-#
-# Checks for the use of output calls like print and puts
-
-Rails/Output:
-  Enabled: true
-
-# Rails::OutputSafety
-#
-# Checks for the use of output safety calls like html_safe and raw
-#
-# bad:    "<p>#{text}></p>".html_safe
-#
-# good:   content_tag(:p, text)
-
-Rails/OutputSafety:
-  Enabled: true
-
-# Rails::PluralizationGrammar
-#
-# Checks for correct grammar when using ActiveSupport`s core extensions to the numeric classes.
-#
-# bad:
-#
-#   3.day.ago
-#   1.months.ago
-#
-# good:
-#
-#   3.days.ago
-#   1.month.ago
-
-Rails/PluralizationGrammar:
-  Enabled: true
-
 # Rails::SafeNavigation
 #
 # Converts usages of `try!` to `&.`. It can also be configured to convert `try`.
@@ -163,17 +55,6 @@ Rails/PluralizationGrammar:
 
 Rails/SafeNavigation:
    ConvertTry: false
-
-# Rails::ScopeArgs
-#
-# Checks for scope class where it was passed a method (usually a scope) instead of a lambda/proc.
-#
-# bad:   scope :something, where(something: true)
-#
-# good:  scope :something, -> { where(something: true) }
-
-Rails/ScopeArgs:
-  Enabled: true
 
 # Rails::UniqBeforePluck
 #
@@ -186,10 +67,3 @@ Rails/ScopeArgs:
 Rails/UniqBeforePluck:
   EnforcedStyle: conservative
   AutoCorrect: true
-
-# Rails::Validation
-#
-# Checks for the use of old-style attribute validation macros.
-
-Rails/Validation:
-  Enabled: true

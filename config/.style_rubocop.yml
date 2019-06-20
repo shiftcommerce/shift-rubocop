@@ -1,25 +1,9 @@
-# Style::AccessModifierDeclarations
-# 
-# Access modifiers should be declared to apply to a group of methods
-#  or inline before each method, depending on configuration.
-# 
-Style/AccessModifierDeclarations:
-  Enabled: true
-
 # Style::Alias
 #
 # Finds uses of `alias` where `alias_method` would be more appropriate, and vice versa.
 
 Style/Alias:
   Enabled: false
-
-# Style::AndOr
-#
-# Checks for uses of 'and' and 'or'
-# ( use &&, || )
-
-Style/AndOr:
-  Enabled: true
 
 # Style::ArrayJoin
 #
@@ -28,36 +12,12 @@ Style/AndOr:
 Style/ArrayJoin:
   Enabled: false
 
-# Style::AsciiComments
-#
-# Checks for non-ascii (non-English) characters in comments.
-
-Style/AsciiComments:
-  Enabled: true
-
 # Style::Attr
 #
 # Checks for uses of Module#attr.
 
 Style/Attr:
   Enabled: false
-
-# Style::AutoResourceCleanup
-#
-# Checks for cases when you could use a block accepting version of a method that does automatic resource cleanup.
-#
-# bad:
-#
-#   f = File.open('file')
-#
-# good:
-#
-#   f = File.open('file') do
-#     ....
-#   end
-
-Style/AutoResourceCleanup:
-  Enabled: true
 
 # Style::BarePercentLiterals
 #
@@ -72,43 +32,6 @@ Style/BarePercentLiterals:
 
 Style/BeginBlock:
   Enabled: false
-
-
-# Style::BlockComments
-#
-# Looks for uses of block comments
-
-Style/BlockComments:
-  Enabled: true
-
-# Style::BlockDelimiters
-#
-# Checks for uses of braces or do/end around single line or multi-line blocks.
-
-Style/BlockDelimiters:
-  Enabled: true
-
-# Style::BracesAroundHashParameters
-#
-# Checks for braces around the last parameter in a method call,
-# if last parameter is a hash.
-
-Style/BracesAroundHashParameters:
-  Enabled: true
-
-# Style::CaseEquality
-#
-# Checks for uses of the case equality operator(===)
-
-Style/CaseEquality:
-  Enabled: true
-
-# Style::CharacterLiteral
-#
-# Checks for uses of the character literal ?x.
-
-Style/CharacterLiteral:
-  Enabled: true
 
 # Style::ClassAndModuleChildren
 #
@@ -134,37 +57,6 @@ Style/ClassAndModuleChildren:
 
 Style/ClassCheck:
   Enabled: false
-
-# Style::ClassMethods
-#
-# Checks for uses of the class/module name instead of self,
-# when defining class/module methods.
-#
-# bad:
-#
-#  class SomeClass
-#    def SomeClass.class_method
-#    end
-#  end
-#
-# good:
-#
-#  class SomeClass
-#    def self.class_method
-#    end
-#  end
-
-Style/ClassMethods:
-  Enabled: true
-
-# Style::ClassVars
-#
-# Checks for uses of class variables. Offenses are signaled only on assignment to class variables to
-# reduce the number of offenses that would be reported.
-# (Try replacing the class variable with class instance variable)
-
-Style/ClassVars:
-  Enabled: true
 
 # Style::CollectionMethods
 #
@@ -232,88 +124,12 @@ Style/ConditionalAssignment:
 Style/Copyright:
   Enabled: false
 
-# Style::DefWithParentheses
-#
-# Checks for parentheses in the definition of a method, that doesnt take any arguments.
-# Both instance and class/singleton methods are checked.
-
-Style/DefWithParentheses:
-  Enabled: true
-
-# Style::Documentation
-#
-# Checks for mising top-level documentation of classes and modules
-
-Style/Documentation:
-  Enabled: true
-
-# Style::DocumentationMethod
-#
-# Checks for missing documentation comment for public methods.
-
-Style/DocumentationMethod:
-  Enabled: true
-
-# Style::DoubleNegation
-#
-# Checks for uses of a double negation (!!) to convert something into a boolean value.
-#
-# bad:    !!something
-#
-# good:   !something.nil?
-# (when something is a 'boolean' the above are not the same thing)
-#
-Style/DoubleNegation:
-  Enabled: true
-
-# Style::EachForSimpleLoop
-#
-# Checks for loops which iterate a constant number of times, using a Range literal and "#each"
-# This can be achieved by using 'times'
-#
-# bad: (1..5).each { }
-#
-# good: 5.times { }
-#
-
-Style/EachForSimpleLoop:
-  Enabled: true
-
-# Style::EachWithObject
-#
-# Checks for induce/reject calls where the passed in object is returned at the end.
-# This can be replaced with 'each_with_object' , so that there is no need to return the object.
-#
-# bad:
-#   [1,2].inject({}) { |a,e| a[e]= e; a }
-# good:
-#   [1,2].each_with_object({}) { |a,e| a[e] = e }
-
-Style/EachWithObject:
-  Enabled: true
-
 # Style::EmptyLiteral
 #
 # Checks for the use of a method, the result of which would be a literal, like an empty array, hash or string
 
 Style/EmptyLiteral:
   Enabled: false
-
-# Style::EmptyMethod
-#
-# Checks for the formatting of empty method definitions.
-#
-# bad:
-#
-#   def foo(bar)
-#   end
-#
-# good:
-#
-#   def foo(bar); end
-
-Style/EmptyMethod:
-  Enabled: true
 
 # Style::Encoding
 #
@@ -329,18 +145,6 @@ Style/Encoding:
 
 Style/EndBlock:
   Enabled: false
-
-# Style::EvenOdd
-#
-# Checks for places where Integer#even? or Integer#odd? should have been used.
-#
-# bad:  if x % 2 == 0
-#
-# good: if x.even?
-#
-Style/EvenOdd:
-  Enabled: true
-
 
 # Style::For
 #
@@ -418,129 +222,6 @@ Style/HashSyntax:
   # Do not suggest { a?: 1 } over { :a? => 1 } in ruby19 style
   PreferHashRocketsForNonAlnumEndingSymbols: false
 
-# Style::IdenticalConditionalBranches
-#
-# Checks for identical lines at the end of each branch of a conditional statement
-#
-# bad:
-#
-#  if condition
-#    do_x
-#    do_z
-#  else
-#    do_y
-#    do_z
-#  end
-#
-# good:
-#
-#  if condition
-#    do_x
-#  else
-#    do_y
-#  end
-#  do_z
-
-Style/IdenticalConditionalBranches:
-  Enabled: true
-
-# Style::IfInsideElse
-#
-# if the `else` branch of a condition consists solely of an `if` node, it can be combined with
-# the `else` to become an `elsif`. This helps to keep the nesting level from getting too deep.
-#
-# bad:
-#
-#  if condition_a
-#    action_a
-#  else
-#    if condition_b
-#      action_b
-#    else
-#      action_c
-#    end
-#  end
-#
-# good:
-#
-#  if condition_a
-#    action_a
-#  elsif condition_b
-#    action_b
-#  else
-#    action_c
-#  end
-
-Style/IfInsideElse:
-  Enabled: true
-
-# Style::IfUnlessModifierOfIfUnless
-#
-# Checks for if and unless statements used as modifiers of other if or unless statements
-#
-# bad:
-#
-#  if tired?
-#    "please stop"
-#  else
-#    "keep going"
-#  end if running?
-#
-# good:
-#
-#  if running?
-#    tired? ? 'stop' : 'go faster'
-#  end
-
-Style/IfUnlessModifierOfIfUnless:
-  Enabled: true
-
-# Style::IfWithSemicolon
-#
-# Checks for uses of semicolon in if statements
-
-Style/IfWithSemicolon:
-  Enabled: true
-
-# Style::InfiniteLoop
-#
-# Use `Kernel#loop` for infinite loops
-#
-# bad:
-#
-#  while true
-#    work
-#  end
-#
-# good:
-#
-#  loop do
-#    work
-#  end
-
-Style/InfiniteLoop:
-  Enabled: true
-
-# Style::InlineComment
-#
-# Checks for trailing inline comments
-#
-# bad:
-#
-#  foo.each do |f|
-#    f.bar # Trailing inline comment
-#  end
-#
-# good:
-#
-#  foo.each do |f|
-#    # Standalone comment
-#    f.bar
-#  end
-
-Style/InlineComment:
-  Enabled: true
-
 # Style::Lamba
 #
 # Checks for uses of the pre 1.9 lambda syntax for one-line anonymous functions
@@ -581,22 +262,6 @@ Style/LambdaCall:
 Style/LineEndConcatenation:
   Enabled: false
 
-# Style::MethodCallWithoutArgsParentheses
-#
-# Checks for unwanted parenthesis in parameterless method calls
-
-Style/MethodCallWithoutArgsParentheses:
-  Enabled: true
-
-# Style::MethodCalledOnDoEndBlock
-#
-# Checks for methods called on a do..end block.
-# The point of this check is that its easy to miss the call tacked
-# on to the block when reading code.
-
-Style/MethodCalledOnDoEndBlock:
-  Enabled: true
-
 # Style::MethodDefParentheses
 #
 # Checks for parenthesis around the arguments in method definitions.
@@ -604,50 +269,6 @@ Style/MethodCalledOnDoEndBlock:
 
 Style/MethodDefParentheses:
   EnforcedStyle: require_parentheses
-
-# Style::MethodMissingSuper
-#
-# This cop checks for the presence of method_missing without falling back on super.
-#
-# bad:
-#
-#  def method_missing(...)
-#    ...
-#  end
-#
-# good:
-#
-#  def method_missing(...)
-#    ...
-#    super
-#  end
-
-Style/MethodMissingSuper:
-  Enabled: true
-
-# Style::MissingRespondToMissing
-#
-# This cop checks for the presence of method_missing without also defining respond_to_missing?.
-#
-# bad:
-#
-#  def method_missing(...)
-#    ...
-#  end
-#
-# good:
-#
-#  def respond_to_missing?(...)
-#    ...
-#  end
-#
-#  def method_missing(...)
-#    ...
-#    super
-#  end
-
-Style/MissingRespondToMissing:
-  Enabled: true
 
 # Style::MissingElse
 #
@@ -677,57 +298,6 @@ Style/MissingRespondToMissing:
 Style/MissingElse:
   Enabled: false
 
-# Style::MultilineBlockChain
-#
-# Checks for chaining of a block another block that spans multiple lines
-#
-# bad:
-#
-#   do_something.do |t|
-#     ....
-#   end.map do |t|
-#     ....
-#   end
-
-Style/MultilineBlockChain:
-  Enabled: true
-
-# Style::MultilineIfModifier
-#
-# Checks for uses of if/unless modifiers with multiline-lines bodies.
-#
-# bad:
-#
-#  {
-#    result: 'this should not happen'
-#  } unless cond
-#
-# good:
-#
-#  { result: 'ok' } if cond
-
-Style/MultilineIfModifier:
-  Enabled: true
-
-# Style::MultilineIfThen
-#
-# Checks for uses of 'then' keyword in multiline statements
-#
-# bad:
-#
-#   if cond then
-#     do_something
-#   end
-#
-# good:
-#
-#   if cond1 then do_a
-#   elsif cond2 then do_b
-#   end
-
-Style/MultilineIfThen:
-  Enabled: true
-
 # Style::MultilineMemoization
 #
 # Checks that multiline memoizations are wrapped in a `begin` and `end` block.
@@ -748,105 +318,6 @@ Style/MultilineIfThen:
 
 Style/MultilineMemoization:
   Enabled: false
-
-# Style::MultilineTernaryOperator
-#
-# Checks for uses of ternary operator in multiline statements
-# ( Avoid multi-line ?: (the ternary operator) )
-
-Style/MultilineTernaryOperator:
-  Enabled: true
-
-# Style::NegatedIf
-#
-# Checks for uses of negated ifs. Only ifs without else are considered
-
-Style/NegatedIf:
-  Enabled: true
-
-# Style::NegatedWhile
-#
-# Checks for uses of while with negated conditions
-
-Style/NegatedWhile:
-  Enabled: true
-
-# Style::NestedParenthesizedCalls
-#
-# Checks for unparenthesized method calls in the argument list of a parenthesized method call.
-#
-# bad:  method1(method2 arg, method3, arg)
-#
-# good: method1(method2(arg), method3(arg))
-
-Style/NestedParenthesizedCalls:
-  Enabled: true
-
-# Style::NestedTernaryOperator
-#
-# Checks for nested ternary op expressions
-# ( Ternary operators must not be nested. Prefer `if` or `else` constructors instead )
-
-Style/NestedTernaryOperator:
-  Enabled: true
-
-# Style::Next
-#
-# Use `next` to skip iteration instead of a condition at the end.
-#
-# bad:
-#
-#  [1, 2].each do |a|
-#    if a == 1 do
-#      puts a
-#    end
-#  end
-#
-# good:
-#
-#  [1, 2].each do |a|
-#    next unless a == 1
-#    puts a
-#  end
-
-Style/Next:
-  Enabled: true
-
-# Style::NilComparison
-#
-# Checks for something comparison with == nil
-#
-# bad: x == nil
-#
-# good: x.nil?
-
-Style/NilComparison:
-  Enabled: true
-
-# Style::NonNilCheck
-#
-# Checks for non-nil checks, which are usually redundant.
-# ( Non-nil checks are allowed if they are the final nodes of predicate. )
-#
-# bad:
-#
-#   if !x.nil?
-#   if x != nil
-#
-# good:
-#
-#   if x
-#
-
-Style/NonNilCheck:
-  Enabled: true
-
-# Style::Not
-#
-# Checks for uses if the keyword not instead of !.
-
-Style/Not:
-  Enabled: true
 
 # Style::NumericLiteralPrefix
 #
@@ -915,55 +386,6 @@ Style/OneLineConditional:
 Style/OptionHash:
   Enabled: false
 
-# Style::OptionalArguments
-#
-# Checks for optional arguments to methods that do not come at the end of the argument list
-#
-# bad:
-#
-#  def foo(a = 1, b, c)
-#  end
-#
-# good:
-#
-#  def baz(a, b, c = 1)
-#  end
-#
-#  def foobar(a = 1, b = 2, c = 3)
-#  end
-
-Style/OptionalArguments:
-  Enabled: true
-
-# Style::ParallelAssignment
-#
-# Checks for simple usages of parallel assignments. This will complain only when the number of
-# variables being assigned matched the number of assigning variables
-#
-# bad:
-#
-#  a, b, c = 1, 2, 3
-#  a, b, c = [1, 2, 3]
-#
-# good:
-#
-#  one, two = *foo
-#  a, b = foo()
-#  a, b = b, a
-#
-#  a = 1
-#  b = 2
-#  c = 3
-
-Style/ParallelAssignment:
-  Enabled: true
-
-# Style::ParenthesesAroundCondition
-#
-# Checks for the presence of superfluous parentheses around the condition of if/while/unless/until.
-Style/ParenthesesAroundCondition:
-  AllowSafeAssignment: true
-
 # Style::PercentLiteralDelimiters
 #
 # Enforces the consistent usage of '%'- literal delimiters.
@@ -1001,38 +423,6 @@ Style/PreferredHashMethods:
 Style/Proc:
   Enabled: false
 
-# Style::RaiseArgs
-#
-# Checks the args passed to 'fail' and 'raise'
-Style/RaiseArgs:
-  Enabled: true
-
-# Style::RedundantBegin
-#
-# Checks for redundant 'begin' blocks
-#
-# Currently checks for code like this:
-#
-#  def test
-#    begin
-#      ..do something..
-#    rescue StandardError => e
-#      ..do something else..
-#    end
-#  end
-Style/RedundantBegin:
-  Enabled: true
-
-# Style::RedundantException
-#
-# Checks for RuntimeError as the argument of raise/fail.
-#
-# Currently checks for code like this:
-#
-#   raise RuntimeError, 'message'
-Style/RedundantException:
-  Enabled: true
-
 # Style::RedundantFreeze
 #
 # Checks for uses of Object#Freeze on immutable objects.
@@ -1044,55 +434,12 @@ Style/RedundantException:
 Style/RedundantFreeze:
   Enabled: false
 
-# Style::RedundantParentheses
-#
-# Check for redundant parentheses
-#
-# bad:  (x) if ((y.z).nil?)
-#
-# good: x if y.z.nil?
-
-Style/RedundantParentheses:
-  Enabled: true
-
-# Style::RedundantReturn
-#
-# Checks for redundant 'return' expressions
-#
-# bad:
-#
-#  def test
-#    return something
-#  end
-#
-# good:
-#
-#  def test
-#    something
-#  end
-Style/RedundantReturn:
-  Enabled: true
-
-# Style::RedundantSelf
-#
-# Checks for redundant uses of self.
-# For more info: http://www.rubydoc.info/github/bbatsov/rubocop/Rubocop/Cop/Style/RedundantSelf
-#
-Style/RedundantSelf:
-  Enabled: true
-
 # Style::RegexpLiteral
 #
 # Checks for regexp literal and reports offenses based on how many escaped slashes
 # there are in the regexp and on the value of the configuration parameter MaxSlashes.
 Style/RegexpLiteral:
   Enabled: false
-
-# Style::RescueModifier
-#
-# Checks for uses of rescue in its modifier form.
-Style/RescueModifier:
-  Enabled: true
 
 # Style::SafeNavigation
 #
@@ -1104,39 +451,6 @@ Style/SafeNavigation:
   # to whatever it used to return.
   ConvertCodeThatCanStartToReturnNil: false
 
-# Style::SelfAssignment
-#
-# Enforces the use of shorthand for self assignment.
-#
-# bad:  x = x + 1
-#
-# good: x += 1
-Style/SelfAssignment:
-  Enabled: true
-
-# Style::Semicolon
-#
-# Checks for multiple expressions placed on the same line.
-# It also checks for lines terminated with a semicolon.
-# ( Do not include semicolons to terminate expressions )
-Style/Semicolon:
-  Enabled: true
-
-# Style::Send
-#
-# Checks for the usage of the send method.
-# ( Prefer object.public_send to send )
-Style/Send:
-  Enabled: true
-
-# Style::SignalException
-#
-# Checks for the uses of 'fail' and 'exception'.
-# ( Use 'fail' instead of 'raise' to signal exceptions. )
-# ( Use 'raise' instead of 'fail' to rethrow exceptions. )
-Style/SignalException:
-  Enabled: true
-
 # Style/SingleLineBlockParams
 #
 # Checks whether the block parameters of a single-line method accepting a block
@@ -1144,50 +458,17 @@ Style/SignalException:
 Style/SingleLineBlockParams:
   Enabled: false
 
-# Style/SingleLineMethods
-#
-# Checks for single-line method definitions.
-Style/SingleLineMethods:
-  Enabled: true
-
 # Style::SpecialGlobalVars
 #
 # Looks for uses of Perl-style global variables.
 Style/SpecialGlobalVars:
   Enabled: false
 
-# Style::StabbyLambdaParentheses
-#
-# Checks for parentheses around stabby lambda arguments.
-
-Style/StabbyLambdaParentheses:
-  Enabled: true
-
 # Style::StringLiterals
 #
 # Checks if uses of quotes match the configured preference.
 Style/StringLiterals:
   EnforcedStyle: double_quotes
-
-# Style::StructInheritance
-#
-# Checks for inheritance from Struct.new
-#
-# bad:
-#  class Person < Struct.new(:first_name, :last_name)
-#  end
-#
-# good:
-#
-#  Person = Struct.new(:first_name, :last_name)
-Style/StructInheritance:
-  Enabled: true
-
-# Style::StringMethods
-#
-# Enforces the use of consistent method names from the string class
-Style/StringMethods:
-  Enabled: true
 
 # Style::SymbolArray
 #
@@ -1196,224 +477,11 @@ Style/StringMethods:
 Style/SymbolArray:
   EnforcedStyle: brackets
 
-# Style::SymbolLiteral
-#
-# Checks symbol literal syntax
-Style/SymbolLiteral:
-  Enabled: true
-
-# Style::SymbolProc
-#
-# Use Symbols as procs when possible
-#
-# bad:  something.map { |s| s.upcase }
-#
-# good:  something.map(&:upcase)
-Style/SymbolProc:
-  Enabled: true
-
 # Style::TernaryParentheses
 #
 # Checks the presence if parentheses around ternary conditions.
 Style/TernaryParentheses:
   Enabled: false
-
-# Style::TrailingCommaInArguments
-#
-# Checks for trailing commas in the argument.
-#
-# bad: method(1,2,)
-# good: method(1,2)
-#
-Style/TrailingCommaInArguments:
-  Enabled: true
-
-# Style::TrailingCommaInArrayLiteral
-#
-# Checks for trailing commas in array and hash literals.
-#
-# bad: a = [1,2,]
-#
-# good: a = [1,2]
-#
-Style/TrailingCommaInArrayLiteral:
-  Enabled: true
-
-# Style::TrailingCommaInHashLiteral
-#
-# Checks for trailing commas in array and hash literals.
-#
-# bad: a = { foo: 1, bar: 2, }
-#
-# good: a = {
-#         foo: 1,
-#         bar: 2
-#       }
-#
-Style/TrailingCommaInHashLiteral:
-  Enabled: true
-
-# Style::TrailingUnderscoreVariable
-#
-# Checks for extra underscores in variable assignment
-Style/TrailingUnderscoreVariable:
-  Enabled: true
-
-# Style::TrivialAccessors
-#
-# Looks for trivial writer/reader methods,
-# that could have been created with attr_* family of functions automatically
-
-Style/TrivialAccessors:
-  Enabled: true
-
-# Style::UnlessElse
-#
-# Looks for 'unless' expressions with 'else' clauses
-Style/UnlessElse:
-  Enabled: true
-
-# Style::UnneededCapitalW
-#
-# Checks for usage of the %W() syntax when %w() would do
-Style/UnneededCapitalW:
-  Enabled: true
-
-# Style::UnneededInterpolation
-#
-# Checks for strings that are just an interpolated expression.
-#
-# bad:  "#{@var}"
-#
-# good:  @var.to_s   ( if @var is not a string )
-#        @var        ( if @var is string )
-Style/UnneededInterpolation:
-  Enabled: true
-
-# Style::UnneededPercentQ
-#
-# Checks for usage of the %q / %Q when '' or "" would do
-Style/UnneededPercentQ:
-  Enabled: true
-
-# Style::VariableInterpolation
-#
-# Checks for variable interpolation ( like "#@ivar" )
-# ( Replace the variable '%s' with "#{%s}" )
-Style/VariableInterpolation:
-  Enabled: true
-
-# Style::WhenThen
-#
-# Checks for 'when;' uses in case expressions.
-# ( use `when x then` instead of `when x;` )
-Style/WhenThen:
-  Enabled: true
-
-# Style::WhileUntilDo
-#
-# Checks for uses of `do` with multi-line `while/until` statements
-Style/WhileUntilDo:
-  Enabled: true
-
-# Style::WhileUntilModifier
-#
-# Checks for while and until statements that would fit on one line if
-# written as a modifier while/until.
-Style/WhileUntilModifier:
-  Enabled: true
-
-# Style::WordArray
-#
-# Check for array literals made up of word-like strings,
-# that are not using the %w() syntax
-Style/WordArray:
-  Enabled: true
-
-# Style::ZeroLengthPredicate
-#
-# Checks for numeric comparison that can be replaced by a predicate method
-#
-# bad: x.length != 0 ,  x.size == 0 , x.length > 0
-#
-# good: x.empty? , !x.empty?
-Style/ZeroLengthPredicate:
-  Enabled: true
-
-
-# Style::RedundantSortBy
-#
-# Identifies places where `sort_by{ ... }` can be replaced by `sort`.
-#
-# bad:
-#
-#  array.sort_by { |x| x }
-#  array.sort_by do |var|
-#    var
-#  end
-#
-# good:
-#
-#  array.sort
-
-Style/RedundantSortBy:
-  Enabled: true
-
-# Style::Sample
-#
-# Identify usages of `shuffle.first`, `shuffle.last` and `shuffle[]` and change them to
-# use `sample` instead
-#
-# bad:   [1, 2, 3].shuffle.first
-#
-# good:  [1, 2, 3].sample
-
-Style/Sample:
-  Enabled: true
-
-# Style::Strip
-#
-# Identifies places where `lstrip.rstrip` can be replaced by `strip`
-#
-# bad:
-#
-#  'abc'.lstrip.rstrip
-#  'abc'.rstrip.lstrip
-#
-# good:
-#
-#   'abc'.strip
-
-Style/Strip:
-  Enabled: true
-
-# Style::EmptyCaseCondition
-#
-# Checks for case statements with an empty condition
-#
-# bad:
-#
-#  case
-#  when x == 0
-#    puts 'x is 0'
-#  when y == 0
-#    puts 'y is 0'
-#  else
-#    puts 'nothing is 0'
-#  end
-#
-# good:
-#
-#  if x == 0
-#    puts 'x is 0'
-#  elsif y == 0
-#    puts 'y is 0'
-#  else
-#    puts 'nothing is 0'
-#  end
-
-Style/EmptyCaseCondition:
-  Enabled: true
 
 # Style::EmptyElse
 #
