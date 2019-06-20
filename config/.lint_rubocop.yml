@@ -227,14 +227,6 @@ Lint/EndInMethod:
 Lint/EnsureReturn:
   Enabled: true
 
-# Lint::Eval
-#
-# Checks for the use of *Kernel#eval*.
-# ( Using eval is serious security risk )
-
-Lint/Eval:
-  Enabled: false
-
 # Lint::FloatOutOfRange
 #
 # Identifies Float literal which are, like, too big.

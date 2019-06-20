@@ -5,6 +5,7 @@ inherit_from:
   - ./config/.style_rubocop.yml
   - ./config/.layout_rubocop.yml
   - ./config/.naming_rubocop.yml
+  - ./config/.security_rubocop.yml
 
 AllCops:
   Exclude:

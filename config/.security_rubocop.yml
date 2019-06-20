@@ -1,0 +1,66 @@
+
+# Security::Eval
+#
+# Checks for the use of *Kernel#eval*.
+# ( Using eval is serious security risk )
+
+Security/Eval:
+  Enabled: false
+
+# Security::JSONLoad
+# 
+# checks for the use of JSON class methods which have potential security issues.
+# 
+# bad
+#   JSON.load("{}")
+#   JSON.restore("{}")
+# 
+# good
+#   JSON.parse("{}")
+# 
+Security/JSONLoad:
+  Enabled: true
+
+# Security::MarshalLoad
+# 
+# checks for the use of Marshal class methods which have potential security issues 
+# leading to remote code execution when loading from an untrusted source
+# bad
+#   Marshal.load("{}")
+#   Marshal.restore("{}")
+# 
+# good
+#   Marshal.dump("{}")
+# 
+# okish - deep copy hack
+#   Marshal.load(Marshal.dump({}))
+# 
+Security/MarshalLoad:
+  Enabled: true
+
+# Security::Open
+# 
+# cop checks for the use of Kernel#open
+# bad
+#   open(something)
+# 
+# good
+#   File.open(something)
+#   IO.popen(something)
+#   URI.parse(something).open
+# 
+Security/Open:
+  Enabled: true
+
+# Security::YAMLLoad
+# 
+# checks for the use of YAML class methods which have potential security issues leading to 
+# remote code execution when loading from an untrusted source.
+# bad
+#   YAML.load("--- foo")
+# 
+# good
+#   YAML.safe_load("--- foo")
+#   YAML.dump("foo")
+Security/YAMLLoad:
+  Enabled: true
