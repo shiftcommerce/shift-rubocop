@@ -321,7 +321,7 @@ Lint/IneffectiveAccessModifier:
 Lint/InheritException:
   EnforcedStyle: runtime_error
 
-# Lint::LiteralInCondition
+# Lint::LiteralAsCondition
 #
 # Checks for literals used as the conditions or as operands in and/or
 # expressions serving as the conditions of if/while/until.
@@ -338,7 +338,7 @@ Lint/InheritException:
 #    do_something
 #  end
 #
-Lint/LiteralInCondition:
+Lint/LiteralAsCondition:
   Enabled: true
 
 # Lint::LiteralInInterpolation
