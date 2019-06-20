@@ -184,7 +184,7 @@ Rails/ScopeArgs:
 # good:  Model.uniq.pluck(:id)
 
 Rails/UniqBeforePluck:
-  EnforcedMode: conservative
+  EnforcedStyle: conservative
   AutoCorrect: true
 
 # Rails::Validation
