@@ -148,14 +148,6 @@ Style/BracesAroundHashParameters:
 Style/CaseEquality:
   Enabled: true
 
-# Style::CaseIndentation
-#
-# Checks how the 'when's of a case expression are indented in relation to its
-# 'case' or 'end' keyword
-
-Style/CaseIndentation:
-  Enabled: false
-
 # Style::CharacterLiteral
 #
 # Checks for uses of the character literal ?x.
@@ -565,25 +557,6 @@ Style/FirstMethodArgumentLineBreak:
 Style/FirstMethodParameterLineBreak:
   Enabled: true
 
-# Style::FirstParameterIndentation
-#
-# Checks the indentation of the first parameter in a method call.
-# ( This cop checks only for first parameter indentation )
-# bad:
-#
-#  some_method(
-#  first_param,
-#  second_param)
-#
-# good:
-#
-#  some_method(
-#    first_param,
-#  second_param)
-
-Style/FirstParameterIndentation:
-  EnforcedStyle: special_for_inner_method_call_in_parentheses
-
 # Style::For
 #
 # Looks for used of the `for` keyword, or `each` method in multi-line loops.
@@ -604,7 +577,7 @@ Style/FormatString:
 # It will add the comment '#frozen_string_literal:true' to top of files to enable frozen string literals.
 
 Style/FrozenStringLiteralComment:
-  EnforcedStyle: when_needed
+  EnforcedStyle: always
 
 # Style::GlobalVars
 #
@@ -743,23 +716,6 @@ Style/IfUnlessModifierOfIfUnless:
 
 Style/IfWithSemicolon:
   Enabled: true
-
-# Style::IndentArray
-#
-# Checks for indentation of the first element in the array literal where
-# the opening bracket and the first elements are on separate lines.
-# ( Array literals shall have their first element indented one step (2 spaces)
-#   more than the start of the line where the opening bracket is )
-
-Style/IndentArray:
-  Enabled: false
-
-# Style::IndentHash
-#
-# Same as the Indent Array but in case of hash
-
-Style/IndentHash:
-  Enabled: false
 
 # Style::IndentAssignment
 #

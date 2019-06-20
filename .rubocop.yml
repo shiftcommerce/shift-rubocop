@@ -1,7 +1,6 @@
 inherit_from:
   - ./config/.lint_rubocop.yml
   - ./config/.metrics_rubocop.yml
-  - ./config/.performance_rubocop.yml
   - ./config/.rails_rubocop.yml
   - ./config/.style_rubocop.yml
   - ./config/.layout_rubocop.yml
