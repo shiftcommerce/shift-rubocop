@@ -1,26 +1,9 @@
-# "Style::AccessModifierIndentation"
-#
-# Modifiers should be indented as deep as method definitions,
-# or as deep as the class/module keyword, depending on configuration.
-
-Style/AccessModifierIndentation:
-  Enabled: false
-
-# Style::AccessorMethodName
-#
-# Makes sure that accessor methods are named properly
-#
-# bad:
-#
-#   def set_attribute(value)..
-#   def get_attribute
-#
-# good:
-#
-#   def attribute=(value)..
-#   def attribute...
-#
-Style/AccessorMethodName:
+# Style::AccessModifierDeclarations
+# 
+# Access modifiers should be declared to apply to a group of methods
+#  or inline before each method, depending on configuration.
+# 
+Style/AccessModifierDeclarations:
   Enabled: true
 
 # Style::Alias
@@ -28,27 +11,6 @@ Style/AccessorMethodName:
 # Finds uses of `alias` where `alias_method` would be more appropriate, and vice versa.
 
 Style/Alias:
-  Enabled: false
-
-# Style::AlignArray
-#
-# Check if elements of a multi-line array literal are aligned.
-
-Style/AlignArray:
-  Enabled: false
-
-# Style::AlignHash
-#
-# Check if the keys, separators, and values of a multi-line hash literal are aligned.
-
-Style/AlignHash:
-  Enabled: false
-
-# Style::AlignParameters
-#
-# Check if parameters on a multi-line method call or definition are aligned.
-
-Style/AlignParameters:
   Enabled: false
 
 # Style::AndOr
@@ -72,13 +34,6 @@ Style/ArrayJoin:
 
 Style/AsciiComments:
   Enabled: true
-
-# Style::AsciiComments
-#
-# Checks for non-ascii characters in identifier names.
-
-Style/AsciiIdentifiers:
-  Enabled: false
 
 # Style::Attr
 #
@@ -155,13 +110,6 @@ Style/CaseEquality:
 Style/CharacterLiteral:
   Enabled: true
 
-# Style::ClassAndModuleCamelCase
-#
-# Checks for class and module names with an underscore in them
-
-Style/ClassAndModuleCamelCase:
-  Enabled: true
-
 # Style::ClassAndModuleChildren
 #
 # Checks the style of children definitions at classes and modules.
@@ -218,27 +166,6 @@ Style/ClassMethods:
 Style/ClassVars:
   Enabled: true
 
-# Style::ClosingParenthesesIndentation
-#
-# Checks the indentation of hanging closing parenthesese in method calls, method definitions and
-# grouped expressions. A hanging closing parentheses means ')' preceded by a line break
-#
-# bad:
-#
-#  def func(
-#    x,
-#    y
-#    )
-#
-# good:
-#
-#  a = b * (x +
-#           y
-#          )
-
-Style/ClosingParenthesisIndentation:
-  Enabled: true
-
 # Style::CollectionMethods
 #
 # Enforces the use of consistent method names from the Enumerable module.
@@ -259,7 +186,6 @@ Style/CollectionMethods:
 Style/ColonMethodCall:
   Enabled: false
 
-
 # Style::CommandLiteral
 #
 # Enforces using `` or %x around command literals.
@@ -272,13 +198,6 @@ Style/CommandLiteral:
 # Checks that comment annotation keywords are written according to guidelines
 
 Style/CommentAnnotation:
-  Enabled: false
-
-# Style::CommentIndentation
-#
-# Checks the indentation of comments.
-
-Style/CommentIndentation:
   Enabled: false
 
 
@@ -333,21 +252,14 @@ Style/DefWithParentheses:
 # Checks for mising top-level documentation of classes and modules
 
 Style/Documentation:
-  Enabled: false
+  Enabled: true
 
 # Style::DocumentationMethod
 #
 # Checks for missing documentation comment for public methods.
 
 Style/DocumentationMethod:
-  Enabled: false
-
-# Style::DotPosition
-#
-# Checks the '.' position in multi-line method calls
-
-Style/DotPosition:
-  EnforcedStyle: trailing
+  Enabled: true
 
 # Style::DoubleNegation
 #
@@ -385,13 +297,6 @@ Style/EachForSimpleLoop:
 #   [1,2].each_with_object({}) { |a,e| a[e] = e }
 
 Style/EachWithObject:
-  Enabled: true
-
-# Style::ElseAlignment
-#
-# Checks for alignment of `else` keywords
-
-Style/ElseAlignment:
   Enabled: true
 
 # Style::EmptyLiteral
@@ -432,13 +337,6 @@ Style/Encoding:
 Style/EndBlock:
   Enabled: false
 
-# Style::EndOfLine
-#
-# Checks for Windows-style line endings in source code.
-
-Style/EndOfLine:
-  Enabled: false
-
 # Style::EvenOdd
 #
 # Checks for places where Integer#even? or Integer#odd? should have been used.
@@ -450,112 +348,6 @@ Style/EndOfLine:
 Style/EvenOdd:
   Enabled: true
 
-# Style::ExtraSpacing
-#
-# Checks for extra/unnecessary whitespace
-
-Style/ExtraSpacing:
-  # When true, allows most uses of extra spacing if the intent is to align
-  # things with the previous or next line, not counting empty lines or comment
-  # lines.
-  AllowForAlignment: true
-  # When true, forces the alignment of `=` in assignments on consecutive lines.
-  ForceEqualSignAlignment: false
-
-# Style::FileName
-#
-# Makes sure that Ruby source files have snake_case names.
-
-Style/FileName:
-  Enabled: true
-
-# Style::FirstArrayElementLineBreak
-#
-# Checks for a line break before the first element in a multi-line array.
-#
-# bad:
-#
-#  [ :a,
-#    :b]
-#
-# good:
-#
-#  [
-#    :a,
-#    :b]
-
-Style/FirstArrayElementLineBreak:
-  Enabled: false
-
-# Style::FirstHashElementLineBreak
-#
-# Checks for a line break before the first element in a multi-line hash.
-#
-# bad:
-#
-#  { a: 1,
-#    b: 2}
-#
-# good:
-#
-#  {
-#    a: 1,
-#    b: 2 }
-
-Style/FirstHashElementLineBreak:
-  Enabled: false
-
-# Style::FirstMethodArgumentLineBreak
-#
-# Checks for a line break before the first argument in a multi-line method call.
-#
-# bad:
-#
-#  method(foo, bar,
-#    baz)
-#
-# good:
-#
-#  method(
-#    foo, bar,
-#    baz)
-#
-# ignored:
-#
-#  method foo, bar,
-#    baz
-
-Style/FirstMethodArgumentLineBreak:
-  Enabled: true
-
-# Style::FirstMethodParameterLineBreak
-#
-# Checks for a line break before the first parameter in a multi-line method parameter definition
-#
-# bad:
-#
-#  def method(foo, bar,
-#      baz)
-#    do_something
-#  end
-#
-# good:
-#
-#  def method(
-#      foo, bar,
-#      baz)
-#    do_something
-#  end
-#
-# ignored:
-#
-#  def method foo,
-#      bar
-#    do_something
-#  end
-
-Style/FirstMethodParameterLineBreak:
-  Enabled: true
 
 # Style::For
 #
@@ -717,55 +509,6 @@ Style/IfUnlessModifierOfIfUnless:
 Style/IfWithSemicolon:
   Enabled: true
 
-# Style::IndentAssignment
-#
-# Checks the indentation of the first line of the right-hand-side of a multi-line assignment.
-#
-# bad:
-#
-#  value =
-#  if foo
-#    'bar'
-#  end
-#
-# good:
-#
-#  value =
-#    if foo
-#    'bar'
-#  end
-
-Style/IndentAssignment:
-  Enabled: false
-
-# Style::IndentationConsistency
-#
-# Checks for inconsistent indentation
-#
-# bad:
-#
-#   def test
-#     puts "world"
-#       puts "here"
-#   end
-
-Style/IndentationConsistency:
-  EnforcedStyle: normal
-
-# Style::IndentationWidth
-#
-# Checks for indentation that does't use two spaces
-#
-# bad:
-#
-#   def test
-#    puts "world"
-#   end
-
-Style/IndentationWidth:
-  Width: 2
-  IgnoredPatterns: []
-
 # Style::InfiniteLoop
 #
 # Use `Kernel#loop` for infinite loops
@@ -783,13 +526,6 @@ Style/IndentationWidth:
 #  end
 
 Style/InfiniteLoop:
-  Enabled: true
-
-# Style::InitialIndentation:
-#
-# Checks for indentation of the first non-blank non-comment line in a file.
-
-Style/InitialIndentation:
   Enabled: true
 
 # Style::InlineComment
@@ -832,14 +568,6 @@ Style/Lambda:
 
 Style/LambdaCall:
   EnforcedStyle: call
-
-# Style::LeadingCommentSpace
-#
-# Checks whether comments have a leading space after the '#'
-# Note: Leading space is not required for RDoc special syntax, like #++, #-, #:nodoc, etc.
-
-Style/LeadingCommentSpace:
-  Enabled: true
 
 # Style::LineEndConcatenation
 #
@@ -928,13 +656,6 @@ Style/MethodMissingSuper:
 Style/MissingRespondToMissing:
   Enabled: true
 
-# Style::MethodName
-#
-# Makes sure that all methods use the 'snake_case' for their name.
-
-Style/MethodName:
-  EnforcedStyle: snake_case
-
 # Style::MissingElse
 #
 # Checks for `if` expressions that do not have an `else` branch.
@@ -963,54 +684,6 @@ Style/MethodName:
 Style/MissingElse:
   Enabled: false
 
-# Style::ModuleFunction
-#
-# Checks for use of  `extend self` in a module
-#
-# bad:
-#
-#   module Test
-#    extend self
-#     ....
-#     end
-#   end
-#
-# Use 'module_function' instead of 'extend self'
-
-Style/ModuleFunction:
-  Enabled: false
-
-# Style::MultilineArrayBraceLayout
-#
-# Checks that the closing brace in an array literal is either on the
-# same line as the last array element, or a new line.
-#
-# symmetrical: closing brace is positioned in same way as opening brace
-
-Style/MultilineArrayBraceLayout:
-  EnforcedStyle: symmetrical
-
-# Style::MultilineAssignmentLayout
-#
-# Checks whether the multiline assignments have a new line after
-# the assignment operator
-#
-# bad: (with EnforcedStyle set to new_line)
-#
-#  foo = if expression
-#    'bar'
-#  end
-#
-# good: (with EnforcedStyle set to same_line)
-#
-#  foo = if expression
-#    'bar'
-#  end
-
-Style/MultilineAssignmentLayout:
-  EnforcedStyle: same_line
-
-
 # Style::MultilineBlockChain
 #
 # Checks for chaining of a block another block that spans multiple lines
@@ -1025,45 +698,6 @@ Style/MultilineAssignmentLayout:
 
 Style/MultilineBlockChain:
   Enabled: true
-
-# Style::MultilineBlockLayout
-#
-# Checks whether the multiline do end blocks have a newline after the start of the block.
-# Additionally, it checks whether the block arguments, if any, are on the same line as the start of the block.
-#
-# bad:
-#
-#  blah do
-#    |i| foo(i)
-#    bar(i)
-#  end
-#
-# good:
-#
-#  blah do |i|
-#    foo(i)
-#    bar(i)
-#  end
-
-Style/MultilineBlockLayout:
-  Enabled: true
-
-# Style::MultilineHashBraceLayout
-#
-# Checks that the closing brace in a hash literal is either on the
-# same line as the last hash element, or a new line
-#
-# Symmetrical:
-#   { a: 1,
-#     b: 2 }
-#
-#   {
-#     a: 1,
-#     b: 2
-#   }
-
-Style/MultilineHashBraceLayout:
-  EnforcedStyle: symmetrical
 
 # Style::MultilineIfModifier
 #
@@ -2053,3 +1687,39 @@ Style/Sample:
 
 Style/Strip:
   Enabled: true
+
+# Style::EmptyCaseCondition
+#
+# Checks for case statements with an empty condition
+#
+# bad:
+#
+#  case
+#  when x == 0
+#    puts 'x is 0'
+#  when y == 0
+#    puts 'y is 0'
+#  else
+#    puts 'nothing is 0'
+#  end
+#
+# good:
+#
+#  if x == 0
+#    puts 'x is 0'
+#  elsif y == 0
+#    puts 'y is 0'
+#  else
+#    puts 'nothing is 0'
+#  end
+
+Style/EmptyCaseCondition:
+  Enabled: true
+
+# Style::EmptyElse
+#
+# Checks for empty else-clauses, possibly including comments and/or an explicit 'nil'
+# depending on Enforced Style
+
+Style/EmptyElse:
+  EnforcedStyle: both

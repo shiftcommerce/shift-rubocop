@@ -1,0 +1,38 @@
+# Naming::AccessorMethodName
+#
+# Makes sure that accessor methods are named properly
+#
+# bad:
+#
+#   def set_attribute(value)..
+#   def get_attribute
+#
+# good:
+#
+#   def attribute=(value)..
+#   def attribute...
+#
+Naming/AccessorMethodName:
+  Enabled: true
+
+# Naming::ClassAndModuleCamelCase
+#
+# Checks for class and module names with an underscore in them
+
+Naming/ClassAndModuleCamelCase:
+  Enabled: true
+
+
+# Naming::FileName
+#
+# Makes sure that Ruby source files have snake_case names.
+
+Naming/FileName:
+  Enabled: true
+
+# Naming::MethodName
+#
+# Makes sure that all methods use the 'snake_case' for their name.
+
+Naming/MethodName:
+  EnforcedStyle: snake_case

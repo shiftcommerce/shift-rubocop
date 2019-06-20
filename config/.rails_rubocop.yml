@@ -156,13 +156,6 @@ Rails/OutputSafety:
 Rails/PluralizationGrammar:
   Enabled: true
 
-# Rails::RequestReferrer
-#
-# Checks for consistent uses of request.referrer
-
-Rails/RequestReferrer:
-  EnforcedStyle: referer
-
 # Rails::SafeNavigation
 #
 # Converts usages of `try!` to `&.`. It can also be configured to convert `try`.

@@ -1,3 +1,32 @@
+# "Layout::AccessModifierIndentation"
+#
+# Modifiers should be indented as deep as method definitions,
+# or as deep as the class/module keyword, depending on configuration.
+
+Layout/AccessModifierIndentation:
+  Enabled: true
+
+# Layout::AlignArray
+#
+# Check if elements of a multi-line array literal are aligned.
+
+Layout/AlignArray:
+  Enabled: false
+
+# Layout::AlignHash
+#
+# Check if the keys, separators, and values of a multi-line hash literal are aligned.
+
+Layout/AlignHash:
+  Enabled: false
+
+# Layout::AlignParameters
+#
+# Check if parameters on a multi-line method call or definition are aligned.
+
+Layout/AlignParameters:
+  Enabled: false
+
 # Layout::BlockAlignment
 #
 # Checks whether the end keywords are aligned properly for do end blocks.
@@ -35,23 +64,228 @@ Layout/BlockAlignment:
 Layout/ConditionPosition:
   Enabled: false
 
+# Layout::ClosingParenthesesIndentation
+#
+# Checks the indentation of hanging closing parenthesese in method calls, method definitions and
+# grouped expressions. A hanging closing parentheses means ')' preceded by a line break
+#
+# bad:
+#
+#  def func(
+#    x,
+#    y
+#    )
+#
+# good:
+#
+#  a = b * (x +
+#           y
+#          )
+
+Layout/ClosingParenthesisIndentation:
+  Enabled: true
+
+# Layout::CommentIndentation
+#
+# Checks the indentation of comments.
+
+Layout/CommentIndentation:
+  Enabled: false
+
 # Layput::DefEndAlignment
 #
 # Checks whether the end keywords of method definitions are aligned properly
 
 Layout/DefEndAlignment:
-  AlignWith: start_of_line
+  EnforcedStyleAlignWith: start_of_line
   AutoCorrect: true
+
+# Layout::DotPosition
+#
+# Checks the '.' position in multi-line method calls
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+# Layout::ElseAlignment
+#
+# Checks for alignment of `else` keywords
+
+Layout/ElseAlignment:
+  Enabled: true
 
 # Layout::EndAlignment
 #
 # Checks whether the end keywords are aligned properly
 
 Layout/EndAlignment:
-  AlignWith: keyword
+  EnforcedStyleAlignWith: keyword
   AutoCorrect: true
 
-# Layout::BlockEndNewLine
+# Layout::EndOfLine
+#
+# Checks for Windows-style line endings in source code.
+
+Layout/EndOfLine:
+  Enabled: false
+
+# Layout::FirstArrayElementLineBreak
+#
+# Checks for a line break before the first element in a multi-line array.
+#
+# bad:
+#
+#  [ :a,
+#    :b]
+#
+# good:
+#
+#  [
+#    :a,
+#    :b]
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: false
+
+# Layout::FirstHashElementLineBreak
+#
+# Checks for a line break before the first element in a multi-line hash.
+#
+# bad:
+#
+#  { a: 1,
+#    b: 2}
+#
+# good:
+#
+#  {
+#    a: 1,
+#    b: 2 }
+
+Layout/FirstHashElementLineBreak:
+  Enabled: false
+
+# Layout::FirstMethodArgumentLineBreak
+#
+# Checks for a line break before the first argument in a multi-line method call.
+#
+# bad:
+#
+#  method(foo, bar,
+#    baz)
+#
+# good:
+#
+#  method(
+#    foo, bar,
+#    baz)
+#
+# ignored:
+#
+#  method foo, bar,
+#    baz
+
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+
+# Layout::FirstMethodParameterLineBreak
+#
+# Checks for a line break before the first parameter in a multi-line method parameter definition
+#
+# bad:
+#
+#  def method(foo, bar,
+#      baz)
+#    do_something
+#  end
+#
+# good:
+#
+#  def method(
+#      foo, bar,
+#      baz)
+#    do_something
+#  end
+#
+# ignored:
+#
+#  def method foo,
+#      bar
+#    do_something
+#  end
+
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+
+# Layout::ExtraSpacing
+#
+# Checks for extra/unnecessary whitespace
+
+Layout/ExtraSpacing:
+  # When true, allows most uses of extra spacing if the intent is to align
+  # things with the previous or next line, not counting empty lines or comment
+  # lines.
+  AllowForAlignment: true
+  # When true, forces the alignment of `=` in assignments on consecutive lines.
+  ForceEqualSignAlignment: false
+
+# Layout::IndentAssignment
+#
+# Checks the indentation of the first line of the right-hand-side of a multi-line assignment.
+#
+# bad:
+#
+#  value =
+#  if foo
+#    'bar'
+#  end
+#
+# good:
+#
+#  value =
+#    if foo
+#    'bar'
+#  end
+
+Layout/IndentAssignment:
+  Enabled: false
+
+# Layout::IndentationConsistency
+#
+# Checks for inconsistent indentation
+#
+# bad:
+#
+#   def test
+#     puts "world"
+#       puts "here"
+#   end
+
+Layout/IndentationConsistency:
+  EnforcedStyle: normal
+
+# Layout::IndentationWidth
+#
+# Checks for indentation that does't use two spaces
+#
+# bad:
+#
+#   def test
+#    puts "world"
+#   end
+
+Layout/IndentationWidth:
+  Width: 2
+  IgnoredPatterns: []
+
+# Layout::InitialIndentation:
+#
+# Checks for indentation of the first non-blank non-comment line in a file.
+
+Layout/InitialIndentation:
+  Enabled: true
+
+# Layout::BlockEndNewline
 #
 # Checks whether the end statement of a do..end block is on its own line.
 #
@@ -66,44 +300,8 @@ Layout/EndAlignment:
 #     eat(piece)
 #   end
 
-Layout/BlockEndNewLine:
+Layout/BlockEndNewline:
   Enabled: true
-
-# Layout::EmptyCaseCondition
-#
-# Checks for case statements with an empty condition
-#
-# bad:
-#
-#  case
-#  when x == 0
-#    puts 'x is 0'
-#  when y == 0
-#    puts 'y is 0'
-#  else
-#    puts 'nothing is 0'
-#  end
-#
-# good:
-#
-#  if x == 0
-#    puts 'x is 0'
-#  elsif y == 0
-#    puts 'y is 0'
-#  else
-#    puts 'nothing is 0'
-#  end
-
-Layout/EmptyCaseCondition:
-  Enabled: true
-
-# Layout::EmptyElse
-#
-# Checks for empty else-clauses, possibly including comments and/or an explicit 'nil'
-# depending on Enforced Style
-
-Layout/EmptyElse:
-  EnforcedStyle: both
 
 # Layout::EmptyLineBetweenDefs
 #
@@ -170,6 +368,14 @@ Layout/EmptyLinesAroundMethodBody:
 Layout/EmptyLinesAroundModuleBody:
   Enabled: false
 
+# Layout::LeadingCommentSpace
+#
+# Checks whether comments have a leading space after the '#'
+# Note: Leading space is not required for RDoc special syntax, like #++, #-, #:nodoc, etc.
+
+Layout/LeadingCommentSpace:
+  Enabled: true
+
 # Layout::RescueEnsureAlignment
 #
 # Checks whether the rescue and ensure keywords are aligned properly
@@ -196,7 +402,7 @@ Layout/RescueEnsureAlignment:
 #
 # Checks for semicolon (;) preceded by space.
 
-Layout/SpaceBeforeSemiColon:
+Layout/SpaceBeforeSemicolon:
   Enabled: true
 
 # Layout::CaseIndentation
@@ -260,3 +466,72 @@ Layout/IndentFirstArrayElement:
 
 Layout/IndentFirstHashElement:
   Enabled: false
+
+# Layout::MultilineArrayBraceLayout
+#
+# Checks that the closing brace in an array literal is either on the
+# same line as the last array element, or a new line.
+#
+# symmetrical: closing brace is positioned in same way as opening brace
+
+Layout/MultilineArrayBraceLayout:
+  EnforcedStyle: symmetrical
+
+# Layout::MultilineAssignmentLayout
+#
+# Checks whether the multiline assignments have a new line after
+# the assignment operator
+#
+# bad: (with EnforcedStyle set to new_line)
+#
+#  foo = if expression
+#    'bar'
+#  end
+#
+# good: (with EnforcedStyle set to same_line)
+#
+#  foo = if expression
+#    'bar'
+#  end
+
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: same_line
+
+# Layout::MultilineBlockLayout
+#
+# Checks whether the multiline do end blocks have a newline after the start of the block.
+# Additionally, it checks whether the block arguments, if any, are on the same line as the start of the block.
+#
+# bad:
+#
+#  blah do
+#    |i| foo(i)
+#    bar(i)
+#  end
+#
+# good:
+#
+#  blah do |i|
+#    foo(i)
+#    bar(i)
+#  end
+
+Layout/MultilineBlockLayout:
+  Enabled: true
+
+# Layout::MultilineHashBraceLayout
+#
+# Checks that the closing brace in a hash literal is either on the
+# same line as the last hash element, or a new line
+#
+# Symmetrical:
+#   { a: 1,
+#     b: 2 }
+#
+#   {
+#     a: 1,
+#     b: 2
+#   }
+
+Layout/MultilineHashBraceLayout:
+  EnforcedStyle: symmetrical
