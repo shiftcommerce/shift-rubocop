@@ -4,6 +4,7 @@ inherit_from:
   - ./config/.performance_rubocop.yml
   - ./config/.rails_rubocop.yml
   - ./config/.style_rubocop.yml
+  - ./config/.layout_rubocop.yml
 
 AllCops:
   Exclude:

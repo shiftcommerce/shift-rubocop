@@ -49,7 +49,7 @@ Metrics/CyclomaticComplexity:
 
 Metrics/LineLength:
   Max: 120
-  AllowHereDoc: true
+  AllowHeredoc: true
   AllowURI: true
   URISchemes:
     -http

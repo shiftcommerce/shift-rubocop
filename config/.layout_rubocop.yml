@@ -1,0 +1,200 @@
+# Layout::BlockAlignment
+#
+# Checks whether the end keywords are aligned properly for do end blocks.
+#
+# The value `start_of_block` means that the `end` should be aligned with line
+# where the `do` keyword appears.
+#
+# The value `start_of_line` means it should be aligned with the whole
+# expression's starting line.
+#
+# The value `either` means both are allowed.
+
+Layout/BlockAlignment:
+  EnforcedStyleAlignWith: either
+
+
+# Layout::ConditionPosition
+#
+# Checks for conditions that are not on the same line as if/while/until.
+#
+# bad:
+#
+#   if
+#     some_condition
+#     do_something
+#   end
+#
+# good:
+#
+#   if some_condition
+#     do_something
+#   end
+#
+  
+Layout/ConditionPosition:
+  Enabled: false
+
+# Layput::DefEndAlignment
+#
+# Checks whether the end keywords of method definitions are aligned properly
+
+Layout/DefEndAlignment:
+  AlignWith: start_of_line
+  AutoCorrect: true
+
+# Layout::EndAlignment
+#
+# Checks whether the end keywords are aligned properly
+
+Layout/EndAlignment:
+  AlignWith: keyword
+  AutoCorrect: true
+
+# Layout::BlockEndNewLine
+#
+# Checks whether the end statement of a do..end block is on its own line.
+#
+# bad:
+#
+#   apple do |piece|
+#     eat(piece) end
+#
+# good:
+#
+#   apple do |piece|
+#     eat(piece)
+#   end
+
+Layout/BlockEndNewLine:
+  Enabled: true
+
+# Layout::EmptyCaseCondition
+#
+# Checks for case statements with an empty condition
+#
+# bad:
+#
+#  case
+#  when x == 0
+#    puts 'x is 0'
+#  when y == 0
+#    puts 'y is 0'
+#  else
+#    puts 'nothing is 0'
+#  end
+#
+# good:
+#
+#  if x == 0
+#    puts 'x is 0'
+#  elsif y == 0
+#    puts 'y is 0'
+#  else
+#    puts 'nothing is 0'
+#  end
+
+Layout/EmptyCaseCondition:
+  Enabled: true
+
+# Layout::EmptyElse
+#
+# Checks for empty else-clauses, possibly including comments and/or an explicit 'nil'
+# depending on Enforced Style
+
+Layout/EmptyElse:
+  EnforcedStyle: both
+
+# Layout::EmptyLineBetweenDefs
+#
+# Checks whether method definitions are separated by empty lines
+
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+
+# Layout::EmptyLines
+#
+# Checks for two or more consecutive blank lines
+
+Layout/EmptyLines:
+  Enabled: true
+
+# StLayoutyle::EmptyLinesAroundAccessModifier
+#
+# Access modifiers should be surrounded by blank spaces.
+
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: false
+
+# Layout::EmptyLinesAroundBlockBody
+#
+# Checks if empty lines around the bodies of blocks match the configuration.
+#
+# bad:
+#
+#  foo do |bar|
+#    ...
+#  end
+#
+# good:
+#
+#  foo do |bar|
+#
+#    ....
+#
+#  end
+#
+# ( This helps in readability of code )
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+# Layout::EmptyLinesAroundClassBody
+#
+# Checks if empty lines around the bodies of classes match the configuration
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+# Layout::EmptyLinesAroundMethodBody
+#
+# Checks if empty lines exist around the bodies of methods.
+
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: false
+
+# Layout::EmptyLinesAroundModuleBody
+#
+# Checks if empty lines around the bodies of modules match the configuration
+
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+# Layout::RescueEnsureAlignment
+#
+# Checks whether the rescue and ensure keywords are aligned properly
+#
+# bad:
+#  begin
+#    something
+#    rescue
+#    puts 'error'
+#  end
+#
+# good:
+#
+#  begin
+#    something
+#  rescue
+#    puts 'error'
+#  end
+
+Layout/RescueEnsureAlignment:
+  Enabled: true
+
+# Layout::SpaceBeforeSemicolon
+#
+# Checks for semicolon (;) preceded by space.
+
+Layout/SpaceBeforeSemiColon:
+  Enabled: true

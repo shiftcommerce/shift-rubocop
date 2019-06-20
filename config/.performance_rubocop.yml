@@ -91,30 +91,6 @@ Performance/Detect:
 Performance/DoubleStartEndWith:
   Enabled: true
 
-# Performance::EndWith
-#
-# Identifies unnecessary use of a regex where `String#end_with?` would suffice
-#
-# bad:
-#
-#  'abc' =~ /bc\Z/
-#  'abc'.match(/bc\Z/)
-#
-# good:
-#
-#  'abc' =~ /ab/
-#  'abc' =~ /\w*\Z/
-
-Performance::EndWith:
-  Enabled: true
-
-# Performance::FixedSize
-#
-# Do not compute the size of statically sized objects.
-
-Performance::FixedSize:
-  Enabled: true
-
 # Lint::FlatMap
 #
 # Used of identify usages of flatten with map and collect
@@ -131,39 +107,6 @@ Performance::FixedSize:
 #  [1, 2, 3, 4].collect { |e| [e, e] }.flatten
 
 Performance/FlatMap:
-  Enabled: true
-
-# Performance::HashEachMethods
-#
-# Checks for uses of `each_key` and `each_value` Hash methods.
-#
-# bad:
-#
-#  hash.keys.each { |k| p k }
-#  hash.values.each { |v| p v }
-#
-# good:
-#
-#  hash.each_key { |k| p k }
-#  hash.each_value { |v| p v }
-
-Performance/HashEachMethods:
-  Enabled: true
-
-# Performance::LstripRstrip
-#
-# Identifies places where `lstrip.rstrip` can be replaced by `strip`
-#
-# bad:
-#
-#  'abc'.lstrip.rstrip
-#  'abc'.rstrip.lstrip
-#
-# good:
-#
-#   'abc'.strip
-
-Performance/LstripRstrip:
   Enabled: true
 
 # Performance::RangeInclude
@@ -256,18 +199,6 @@ Performance/RedundantSortBy:
 # good:  [].reverse_each
 
 Performance/ReverseEach:
-  Enabled: true
-
-# Performance::Sample
-#
-# Identify usages of `shuffle.first`, `shuffle.last` and `shuffle[]` and change them to
-# use `sample` instead
-#
-# bad:   [1, 2, 3].shuffle.first
-#
-# good:  [1, 2, 3].sample
-
-Performance/Sample:
   Enabled: true
 
 # Performance::Size

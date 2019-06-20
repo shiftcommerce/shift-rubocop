@@ -46,21 +46,6 @@ Lint/AmbiguousRegexpLiteral:
 Lint/AssignmentInCondition:
   AllowSafeAssignment: true
 
-# Lint::BlockAlignment
-#
-# Checks whether the end keywords are aligned properly for do end blocks.
-#
-# The value `start_of_block` means that the `end` should be aligned with line
-# where the `do` keyword appears.
-#
-# The value `start_of_line` means it should be aligned with the whole
-# expression's starting line.
-#
-# The value `either` means both are allowed.
-
-Lint/BlockAlignment:
-  AlignWith: either
-
 # Lint::CircularArgumentReference
 #
 # Checks for circular argument reference in optional keyword arguments and optional
@@ -81,40 +66,12 @@ Lint/BlockAlignment:
 Lint/CircularArgumentReference:
   Enabled: true
 
-# Lint::ConditionPosition
-#
-# Checks for conditions that are not on the same line as if/while/until.
-#
-# bad:
-#
-#   if
-#     some_condition
-#     do_something
-#   end
-#
-# good:
-#
-#   if some_condition
-#     do_something
-#   end
-#
-Lint/ConditionPosition:
-  Enabled: false
-
 # Lint::Debugger
 #
 # Checks for calls to debugger or pry.
 
 Lint/Debugger:
   Enabled: true
-
-# Lint::DefEndAlignment
-#
-# Checks whether the end keywords of method definitions are aligned properly
-
-Lint/DefEndAlignment:
-  AlignWith: start_of_line
-  AutoCorrect: true
 
 # Lint::DeprecatedClassMethods
 #
@@ -161,15 +118,6 @@ Lint/DuplicateCaseCondition:
 #  end
 
 Lint/DuplicateMethods:
-  Enabled: true
-
-# Lint::DuplicateKey
-#
-# Checks for duplicated keys in hash literals
-#
-# bad:  hash = { food: 'apple', food: 'orange' }
-
-Lint/DuplicateKey:
   Enabled: true
 
 # Lint::EachWithObjectArgument
@@ -262,14 +210,6 @@ Lint/EmptyInterpolation:
 #
 Lint/EmptyWhen:
   Enabled: true
-
-# Lint::EndAlignment
-#
-# Checks whether the end keywords are aligned properly
-
-Lint/EndAlignment:
-  AlignWith: keyword
-  AutoCorrect: true
 
 # Lint::EndInMethod
 #
@@ -388,15 +328,6 @@ Lint/IneffectiveAccessModifier:
 
 Lint/InheritException:
   EnforcedStyle: runtime_error
-
-# Lint::InvalidCharacterLiteral
-#
-# Checks for invalid character literals with a non-escaped whitespace character (e.g. `?`).
-# Generally this results in syntax errors.
-#
-# bad:  p(? )
-Lint/InvalidCharacterLiteral:
-  Enabled: false
 
 # Lint::LiteralInCondition
 #
@@ -630,14 +561,6 @@ Lint/UnderscorePrefixedVariableName:
 Lint/UnifiedInteger:
   Enabled: true
 
-# Lint::UnneededDisable
-#
-# Detects the instances of rubocop:disableComments that can be removed without causing any
-# offenses to be reported.
-
-Lint/UnneededDisable:
-  Enabled: true
-
 # Lint::UnneededSplatExpansion
 #
 # Checks for unneeded usages of splat expansion
@@ -747,3 +670,12 @@ Lint/UselessSetterCall:
 #
 Lint/Void:
   Enabled: false
+
+
+# Lint::FlipFlop
+#
+# Looks for uses of flip flop operator.
+# ( Avoid the use of flip flop operators)
+
+Lint/FlipFlop:
+  Enabled: true

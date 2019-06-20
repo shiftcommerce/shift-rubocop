@@ -110,18 +110,6 @@ Rails/FindEach:
 Rails/HasAndBelongsToMany:
   Enabled: true
 
-# Rails::HttpPositionalArguments
-#
-# Identifies usages of http methods like 'get', 'post', 'put', 'path' without the usage
-# of keyword arguments in tests and change them to keyword arguments.
-#
-# bad:    get :new, { user_id: 1 }
-#
-# good:   get :new, params: { user_id: 1 }
-
-Rails/HttpPositionalArugments:
-  Enabled: false
-
 # Rails::NotNullColumn
 #
 # Checks for add_column call with NOT NULL constraint in migration file.
@@ -168,28 +156,11 @@ Rails/OutputSafety:
 Rails/PluralizationGrammar:
   Enabled: true
 
-# Rails::ReadWriteGrammar
-#
-# Checks for the use of the read_attribute or write_attribute methods.
-#
-# bad:
-#
-#  x = read_attribute(:attr)
-#  write_attribute(:attr, val)
-#
-# good:
-#
-#  x = self[:attr]
-#  self[:attr] = val
-
-Rails/ReadWriteGrammer:
-  Enabled: true
-
 # Rails::RequestReferrer
 #
 # Checks for consistent uses of request.referrer
 
-Rails/ReadWriteGrammer:
+Rails/RequestReferrer:
   EnforcedStyle: referer
 
 # Rails::SafeNavigation
@@ -199,19 +170,6 @@ Rails/ReadWriteGrammer:
 
 Rails/SafeNavigation:
    ConvertTry: false
-
-# Rails::SafeBang
-#
-# Identifies possible cases where Active Record save! or related should be used
-# instead of save because the model might have failed to save and an excpetion is better
-# then unhandled failure
-#
-# bad:   user.save
-#
-# good:  user.save!
-
-Rails/SafeBang:
-  Enabled: true
 
 # Rails::ScopeArgs
 #
@@ -223,18 +181,6 @@ Rails/SafeBang:
 
 Rails/ScopeArgs:
   Enabled: true
-
-# Rails::Timezone
-#
-# Checks for the use of Time methods without zone
-#
-# bad:
-#
-#   Time.now
-#   Time.parse('2015-03-02 19:05:37')
-
-Rails/Timezone:
-  EnforcedStyle: flexible
 
 # Rails::UniqBeforePluck
 #
