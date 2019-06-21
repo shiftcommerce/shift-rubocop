@@ -1,0 +1,7 @@
+# Lint::InheritException
+#
+# Looks for error classes inheriting from 'Exception' and its standard library subclasses,
+# excluding subclasses of 'StandardError'.
+
+Lint/InheritException:
+  EnforcedStyle: runtime_error

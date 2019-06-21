@@ -1,0 +1,69 @@
+Rails:
+  Enabled: true
+
+# Rails::ActionFilter
+#
+# Enforces the consistent use of action filter methods.
+# This is configurable and can enforce user of
+# older something_filter methods of newer something_action methods
+
+Rails/ActionFilter:
+  EnforcedStyle: action
+
+# Rails::Date
+#
+# Checks for the correct use of Date methods
+#
+# bad:
+#
+#  Date.today
+#  date.to_time
+
+Rails/Date:
+  EnforcedStyle: flexible
+
+# Rails::DynamicFindBy
+#
+# Checks dynamic `find_by_*` methods. Use `find_by` instead of dynamic method.
+# (When retrieve a single record by some attributes, prefer `find_by`)
+#  For more info: https://github.com/bbatsov/rails-style-guide#find_by
+#
+# bad: User.find_by_name(name)
+#
+# good: User.find_by(name: name)
+#
+
+Rails/DynamicFindBy:
+  Whitelist:
+  - find_by_sql
+
+# Rails::NotNullColumn
+#
+# Checks for add_column call with NOT NULL constraint in migration file.
+#
+# bad:    add_column :users, :name, :string, null: false
+#
+# good:   add_column :users, :name, :string, null: false, default: ''
+
+Rails/NotNullColumn:
+  Enabled: false
+
+# Rails::SafeNavigation
+#
+# Converts usages of `try!` to `&.`. It can also be configured to convert `try`.
+# It will convert code to use navigation if the target Ruby version is set to 2.3+
+
+Rails/SafeNavigation:
+   ConvertTry: false
+
+# Rails::UniqBeforePluck
+#
+# Prefer the use of uniq (or distinct), before pluck instead of after.
+#
+# bad:   Model.pluck(:id).uniq
+#
+# good:  Model.uniq.pluck(:id)
+
+Rails/UniqBeforePluck:
+  EnforcedStyle: conservative
+  AutoCorrect: true

@@ -1,0 +1,492 @@
+# Style::Alias
+#
+# Finds uses of `alias` where `alias_method` would be more appropriate, and vice versa.
+
+Style/Alias:
+  Enabled: false
+
+# Style::ArrayJoin
+#
+# Checks for users of "*" as a substitute for join.
+
+Style/ArrayJoin:
+  Enabled: false
+
+# Style::Attr
+#
+# Checks for uses of Module#attr.
+
+Style/Attr:
+  Enabled: false
+
+# Style::BarePercentLiterals
+#
+# Checks if usage of %() or %Q() matches configuration
+
+Style/BarePercentLiterals:
+  Enabled: false
+
+# Style::BeginBlock
+#
+# Checks for BEGIN blocks
+
+Style/BeginBlock:
+  Enabled: false
+
+# Style::ClassAndModuleChildren
+#
+# Checks the style of children definitions at classes and modules.
+#
+# Not preferred:
+#   class Foo
+#     class Bar
+#     end
+#   end
+#
+# Preferred:
+#
+#   class Foo::Bar
+#   end
+#
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# Style::ClassCheck
+#
+# Enforces consistent use of 'Object#is_a?' or 'Object#kind_of?'.
+
+Style/ClassCheck:
+  Enabled: false
+
+# Style::CollectionMethods
+#
+# Enforces the use of consistent method names from the Enumerable module.
+
+Style/CollectionMethods:
+  Enabled: true
+  PreferredMethods:
+    length: "size"
+
+# Style::ColonMethodCall
+#
+# Checks for methods invoked via the '::' operator instead of '.' operator.
+#
+# bad: FileUtils::rmdir
+#
+# good: FileUtils.rmdir
+
+Style/ColonMethodCall:
+  Enabled: false
+
+# Style::CommandLiteral
+#
+# Enforces using `` or %x around command literals.
+
+Style/CommandLiteral:
+  Enabled: false
+
+# Style::CommentAnnotation
+#
+# Checks that comment annotation keywords are written according to guidelines
+
+Style/CommentAnnotation:
+  Enabled: false
+
+
+# Style::ConditionalAssignment
+#
+# Check for `if` and `case` statements where each branch is used for assignment to the same variable
+# when using the return of the condition can be used instead
+#
+# bad:
+#
+#  bar = if foo
+#          1
+#        else
+#          2
+#        end
+#
+# good:
+#
+#  if foo
+#    bar = 1
+#  else
+#    bar = 2
+#  end
+
+Style/ConditionalAssignment:
+  Enabled: false
+
+# Style::Copyright
+#
+# Check that a copyright notice was given in each source file
+
+Style/Copyright:
+  Enabled: false
+
+# Style::EmptyLiteral
+#
+# Checks for the use of a method, the result of which would be a literal, like an empty array, hash or string
+
+Style/EmptyLiteral:
+  Enabled: false
+
+# Style::Encoding
+#
+# Checks whether the source file has a utf-8 encoding comment or not
+# This is required if code should be supported by Ruby 1.9, since in 2.0+ utf-8 is default
+
+Style/Encoding:
+  Enabled: false
+
+# Style::EndBlock
+#
+# Checks for END blocks. Use `kernel#at_exit` instead
+
+Style/EndBlock:
+  Enabled: false
+
+# Style::For
+#
+# Looks for used of the `for` keyword, or `each` method in multi-line loops.
+
+Style/For:
+  EnforcedStyle: each
+
+# Style::FormatString
+#
+# Enforce the method used for string formatting.
+
+Style/FormatString:
+  EnforcedStyle: format
+
+# Style::FrozenStringLiteralComment
+#
+# This cop is designed to help upgrade to Ruby 3.0
+# It will add the comment '#frozen_string_literal:true' to top of files to enable frozen string literals.
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
+# Style::GlobalVars
+#
+# Looks for uses of global variables. Report offenses for any global variables found
+# Build-in global variables are allowed by default
+Style/GlobalVars:
+  Enabled: false
+
+# Style::GuardClause
+#
+# Use a guard clause instead of wrapping the code inside a conditional expression
+#
+# bad:
+#
+#   def test
+#     if something
+#       work
+#     end
+#   end
+#
+# good:
+#
+#   def test
+#     return unless something
+#     work
+#   end
+#
+# 'MinBodyLength' defines the number of lines of the body of an `if` or `unless`
+# needs to have to trigger this cop
+
+Style/GuardClause:
+  MinBodyLength: 2
+
+# Style::HashSyntax
+#
+# Checks hash literal syntax
+# 'ruby19_no_mixed_keys' checks for hash syntax for all hashes
+#
+# bad:
+#
+#  {:a => 1, :b => 2}
+#  {c: 2, 'd' => 3} # should just use hash rockets
+#
+# good:
+#
+#  {a: 1, b: 2}
+#  {:c => 3, :d => 4}
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+  # Force hashes that have a symbol value to use hash rockets
+  UseHashRocketsWithSymbolValues: false
+  # Do not suggest { a?: 1 } over { :a? => 1 } in ruby19 style
+  PreferHashRocketsForNonAlnumEndingSymbols: false
+
+# Style::Lamba
+#
+# Checks for uses of the pre 1.9 lambda syntax for one-line anonymous functions
+# and uses of the 1.9 lambda syntax for multi-line anonymous functions.
+# In simple terms, for single line `->(params) {...}` is expected to use and
+# for multiline 'lambda' method is expected.
+
+Style/Lambda:
+  EnforcedStyle: line_count_dependent
+
+# Style::LambdaCall
+#
+# Checks for use of the lambda.(args) syntax.
+#
+# bad:  lambda.(x,y)
+#
+# good: lambda.call(x,y)
+
+Style/LambdaCall:
+  EnforcedStyle: call
+
+# Style::LineEndConcatenation
+#
+# Checks for string literal concatenatio at the end of the line.
+#
+# bad:
+#
+#   some_str = 'pras' +
+#               'anna'
+#   some_Str =  'pras' <<
+#               'anna'
+#
+# good:
+#
+#   some_str = 'pras' \
+#              'anna'
+
+Style/LineEndConcatenation:
+  Enabled: false
+
+# Style::MethodDefParentheses
+#
+# Checks for parenthesis around the arguments in method definitions.
+# Both instance and class/singleton methods are checked.
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_parentheses
+
+# Style::MissingElse
+#
+# Checks for `if` expressions that do not have an `else` branch.
+#
+# bad:
+#
+#  if condition
+#    statement
+#  end
+#
+# bad:
+#
+#  case var
+#  when condition
+#    statement
+#  end
+#
+# good:
+#
+#  if condition
+#    statement
+#  else
+#  # the content of the else branch will be determined by Style/EmptyElse
+#  end
+
+Style/MissingElse:
+  Enabled: false
+
+# Style::MultilineMemoization
+#
+# Checks that multiline memoizations are wrapped in a `begin` and `end` block.
+#
+# bad:
+#
+#  foo ||= (
+#    bar
+#    baz
+#  )
+#
+# good:
+#
+#  foo ||= begin
+#    bar
+#    baz
+#  end
+
+Style/MultilineMemoization:
+  Enabled: false
+
+# Style::NumericLiteralPrefix
+#
+# Checks for octal, hext, binary and decimal literals using uppercase prefixes and corrects
+# them to lowercase prefix or no prefix (in case of decimals).
+# e.g. For octal use '0o' instad of '0' or '0O'
+
+Style/NumericLiteralPrefix:
+  EnforcedOctalStyle: zero_with_o
+
+# Style::NumericLiterals
+#
+# Checks for big numeric literals without _ between groups of digits in them
+Style/NumericLiterals:
+  MinDigits: 5
+
+# Style::NumericPredicate
+#
+# Checks for usage of comparison operators (`==`, `>`, `<`) to test numbers as zero,
+# positive, or negative. These can be replaced by their respective perdicate methods.
+#
+# Note: This cop regards `nonzero?` as its value is truthy or falsey, but not `true`
+# and `false`, and thus not always interchangeable with `!=0`
+#
+# bad
+#
+#  foo == 0
+#  0 > foo
+#  bar.baz > 0
+#
+# good
+#
+#  foo.zero?
+#  foo.negative?
+#  bar.baz.positive?
+
+Style/NumericPredicate:
+  EnforcedStyle: predicate
+
+# Style::OneLineConditional
+#
+# Checks for uses of if/then/else/end on a single line.
+Style/OneLineConditional:
+  Enabled: false
+
+# Style::OptionHash
+#
+# Checks for options hashes and discourages them if the current Ruby version
+# supports keyword arguments
+#
+# Example:
+#
+#  Instead of:
+#
+#  def fry(options = {})
+#    temperature = options.fetch(:temperature, 300)
+#    ...
+#  end
+#
+#  Prefer:
+#
+#  def fry(temperature: 300)
+#    ...
+#  end
+
+Style/OptionHash:
+  Enabled: false
+
+# Style::PercentLiteralDelimiters
+#
+# Enforces the consistent usage of '%'- literal delimiters.
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+# Style::PerlBackrefs
+#
+# Loks for uses of Perl-style regexp match backreferences like $1, $2 etc.
+Style/PerlBackrefs:
+  Enabled: false
+
+# Style::PreferredHashMethods
+#
+# Checks for uses of methods `Hash#has_key?` and `Hash#has_value?` where it enforces `Hash#key?` and `Hash#value?`
+# It is configurable to enforce the inverse
+# EnforcedStyle: short
+#
+# good:
+#
+#  Hash#key?
+#  Hash#value?
+#
+# bad:
+#
+#  Hash#has_key?
+#  Hash#has_value?
+
+Style/PreferredHashMethods:
+  EnforcedStyle: short
+
+# Style::Proc
+#
+# Checks for uses of Proc.new where Kernel#proc would be more appropriate
+Style/Proc:
+  Enabled: false
+
+# Style::RedundantFreeze
+#
+# Checks for uses of Object#Freeze on immutable objects.
+#
+# bad:  CONST = 1.freeze
+#
+# good: CONST = 1
+
+Style/RedundantFreeze:
+  Enabled: false
+
+# Style::RegexpLiteral
+#
+# Checks for regexp literal and reports offenses based on how many escaped slashes
+# there are in the regexp and on the value of the configuration parameter MaxSlashes.
+Style/RegexpLiteral:
+  Enabled: false
+
+# Style::SafeNavigation
+#
+# Transforms usages of a method call safeguarded by a non `nil` check for the variable
+# whose method is being called to safe navigation (`&`).
+
+Style/SafeNavigation:
+  # Safe navigation may cause a statement to start returning `nil` in addition
+  # to whatever it used to return.
+  ConvertCodeThatCanStartToReturnNil: false
+
+# Style/SingleLineBlockParams
+#
+# Checks whether the block parameters of a single-line method accepting a block
+# match the names specified via configuration.
+Style/SingleLineBlockParams:
+  Enabled: false
+
+# Style::SpecialGlobalVars
+#
+# Looks for uses of Perl-style global variables.
+Style/SpecialGlobalVars:
+  Enabled: false
+
+# Style::StringLiterals
+#
+# Checks if uses of quotes match the configured preference.
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# Style::SymbolArray
+#
+# Checks for array literals made up of symbols that are not using the %i() syntax
+# ( Use %i or %I for array of symbols )
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+# Style::TernaryParentheses
+#
+# Checks the presence if parentheses around ternary conditions.
+Style/TernaryParentheses:
+  Enabled: false
+
+# Style::EmptyElse
+#
+# Checks for empty else-clauses, possibly including comments and/or an explicit 'nil'
+# depending on Enforced Style
+
+Style/EmptyElse:
+  EnforcedStyle: both

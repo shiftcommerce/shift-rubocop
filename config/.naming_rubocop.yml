@@ -1,0 +1,24 @@
+# Naming::MethodName
+#
+# Makes sure that all methods use the 'snake_case' for their name.
+
+Naming/MethodName:
+  EnforcedStyle: snake_case
+
+# Naming::VariableName
+#
+# Makes sure that all the variables use the configured style : snake_case
+Naming/VariableName:
+  EnforcedStyle: snake_case
+
+# Naming::VariableNumber
+#
+# Makes sure that all numbered variables use the snake_case  style, for their numbering
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+# Naming::BinaryOperatorParameterName
+#
+# Makes sure that certain operator method have their sole parameter named `other`
+Naming/BinaryOperatorParameterName:
+  Enabled: false
